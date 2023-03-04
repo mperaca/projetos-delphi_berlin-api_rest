@@ -1,0 +1,32 @@
+*** Preparando Ambiente de Trabalho ***
+
+- Instalar Boss (Gerenciador de Dependências p/Delphi)
+  - https://github.com/HashLoad/boss/releases/tag/v3.0.2 (baixar e executar setup.exe)
+  - https://www.youtube.com/watch?v=bchUVPFRUj8 (vídeo explicando o que é Boss)
+
+- Instalar Git Bash (Emulador de Terminal)
+  - https://git-scm.com/download/win 
+
+- Instalar Horse (Framework para Desenvolver Aplicações REST)
+  - $ boss init;
+  - $ boss install horse;
+
+- Instalar Postman ou Insomnia (Framework para Testar os Acessos a API)
+
+
+
+*** Trabalhando com JSON ****
+
+- Instalar o Middleware JHONSON (do Horse)
+  - $ boss install jhonson;
+
+
+*** ACBr ****
+
+- Instalar o FortesReport 
+  - https://facebook.com/193769710729864/posts/913068845466610/
+
+- Atualizar o diretório C:/ACBr
+
+- Alterar o arquivo ACBrDFeCapicom.pas 
+  - acrescentar a linha (ResultInitialize := CoInitialize(nil))

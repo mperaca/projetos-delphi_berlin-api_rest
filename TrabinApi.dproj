@@ -1,0 +1,845 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{145D3E13-EDD5-4EC0-BB1F-9810A23FCEF1}</ProjectGuid>
+        <ProjectVersion>18.1</ProjectVersion>
+        <FrameworkType>VCL</FrameworkType>
+        <MainSource>TrabinApi.dpr</MainSource>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <TargetedPlatforms>1</TargetedPlatforms>
+        <AppType>Console</AppType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Android' and '$(Base)'=='true') or '$(Base_Android)'!=''">
+        <Base_Android>true</Base_Android>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='iOSDevice32' and '$(Base)'=='true') or '$(Base_iOSDevice32)'!=''">
+        <Base_iOSDevice32>true</Base_iOSDevice32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='iOSDevice64' and '$(Base)'=='true') or '$(Base_iOSDevice64)'!=''">
+        <Base_iOSDevice64>true</Base_iOSDevice64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='iOSSimulator' and '$(Base)'=='true') or '$(Base_iOSSimulator)'!=''">
+        <Base_iOSSimulator>true</Base_iOSSimulator>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='OSX32' and '$(Base)'=='true') or '$(Base_OSX32)'!=''">
+        <Base_OSX32>true</Base_OSX32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+        <Base_Win64>true</Base_Win64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+        <Cfg_1_Win32>true</Cfg_1_Win32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
+        <SanitizedProjectName>TrabinApi</SanitizedProjectName>
+        <DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
+        <DCC_ExeOutput>.\$(Platform)\$(Config)</DCC_ExeOutput>
+        <DCC_E>false</DCC_E>
+        <DCC_N>false</DCC_N>
+        <DCC_S>false</DCC_S>
+        <DCC_F>false</DCC_F>
+        <DCC_K>false</DCC_K>
+        <DCC_UnitSearchPath>modules\.dcp;modules\.dcu;modules;modules\dataset-serialize\src;modules\gbswagger\Source\Core;modules\gbswagger\Source\Datasnap;modules\gbswagger\Source\Horse;modules\gbswagger\Source\Validator;modules\horse\src;modules\horse-basic-auth\src;modules\horse-compression\src;modules\horse-octet-stream\src;modules\jhonson\src;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Android)'!=''">
+        <DCC_UsePackage>DBXSqliteDriver;RESTComponents;DBXInterBaseDriver;emsclientfiredac;DataSnapFireDAC;tethering;bindcompfmx;FmxTeeUI;FireDACIBDriver;fmx;FireDACDBXDriver;dbexpress;IndyCore;dsnap;DataSnapCommon;emsclient;FireDACCommon;RESTBackendComponents;soapserver;bindengine;CloudService;FireDACCommonDriver;DataSnapClient;inet;bindcompdbx;IndyIPCommon;IndyIPServer;IndySystem;fmxFireDAC;FireDAC;FireDACSqliteDriver;ibmonitor;FMXTee;soaprtl;DbxCommonDriver;ibxpress;xmlrtl;soapmidas;DataSnapNativeClient;ibxbindings;rtl;FireDACDSDriver;DbxClientDriver;CustomIPTransport;bindcomp;fgx;IndyIPClient;BarcodeScanner;dbxcds;dsnapxml;DataSnapProviderClient;dbrtl;IndyProtocols;$(DCC_UsePackage)</DCC_UsePackage>
+        <Android_LauncherIcon48>$(BDS)\bin\Artwork\Android\FM_LauncherIcon_48x48.png</Android_LauncherIcon48>
+        <Android_SplashImage960>$(BDS)\bin\Artwork\Android\FM_SplashImage_960x720.png</Android_SplashImage960>
+        <Android_LauncherIcon144>$(BDS)\bin\Artwork\Android\FM_LauncherIcon_144x144.png</Android_LauncherIcon144>
+        <Android_SplashImage426>$(BDS)\bin\Artwork\Android\FM_SplashImage_426x320.png</Android_SplashImage426>
+        <Android_LauncherIcon72>$(BDS)\bin\Artwork\Android\FM_LauncherIcon_72x72.png</Android_LauncherIcon72>
+        <Android_SplashImage640>$(BDS)\bin\Artwork\Android\FM_SplashImage_640x480.png</Android_SplashImage640>
+        <Android_LauncherIcon96>$(BDS)\bin\Artwork\Android\FM_LauncherIcon_96x96.png</Android_LauncherIcon96>
+        <Android_SplashImage470>$(BDS)\bin\Artwork\Android\FM_SplashImage_470x320.png</Android_SplashImage470>
+        <EnabledSysJars>android-support-v4.dex.jar;cloud-messaging.dex.jar;fmx.dex.jar;google-analytics-v2.dex.jar;google-play-billing.dex.jar;google-play-licensing.dex.jar;google-play-services.dex.jar</EnabledSysJars>
+        <Android_LauncherIcon36>$(BDS)\bin\Artwork\Android\FM_LauncherIcon_36x36.png</Android_LauncherIcon36>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_iOSDevice32)'!=''">
+        <DCC_UsePackage>DBXSqliteDriver;RESTComponents;DBXInterBaseDriver;emsclientfiredac;DataSnapFireDAC;tethering;bindcompfmx;FmxTeeUI;FireDACIBDriver;fmx;FireDACDBXDriver;dbexpress;IndyCore;dsnap;DataSnapCommon;emsclient;FireDACCommon;RESTBackendComponents;soapserver;bindengine;CloudService;FireDACCommonDriver;DataSnapClient;inet;bindcompdbx;IndyIPCommon;IndyIPServer;IndySystem;fmxFireDAC;FireDAC;FireDACSqliteDriver;ibmonitor;FMXTee;soaprtl;DbxCommonDriver;ibxpress;xmlrtl;soapmidas;DataSnapNativeClient;ibxbindings;rtl;FireDACDSDriver;DbxClientDriver;CustomIPTransport;bindcomp;fgx;IndyIPClient;dbxcds;dsnapxml;DataSnapProviderClient;dbrtl;IndyProtocols;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_iOSDevice64)'!=''">
+        <DCC_UsePackage>DBXSqliteDriver;RESTComponents;DBXInterBaseDriver;emsclientfiredac;DataSnapFireDAC;tethering;bindcompfmx;FmxTeeUI;FireDACIBDriver;fmx;FireDACDBXDriver;dbexpress;IndyCore;dsnap;DataSnapCommon;emsclient;FireDACCommon;RESTBackendComponents;soapserver;bindengine;CloudService;FireDACCommonDriver;DataSnapClient;inet;bindcompdbx;IndyIPCommon;IndyIPServer;IndySystem;fmxFireDAC;FireDAC;FireDACSqliteDriver;ibmonitor;FMXTee;soaprtl;DbxCommonDriver;ibxpress;xmlrtl;soapmidas;DataSnapNativeClient;ibxbindings;rtl;FireDACDSDriver;DbxClientDriver;CustomIPTransport;bindcomp;IndyIPClient;dbxcds;dsnapxml;DataSnapProviderClient;dbrtl;IndyProtocols;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_iOSSimulator)'!=''">
+        <DCC_UsePackage>DBXSqliteDriver;RESTComponents;DBXInterBaseDriver;emsclientfiredac;DataSnapFireDAC;tethering;bindcompfmx;FmxTeeUI;FireDACIBDriver;fmx;FireDACDBXDriver;dbexpress;IndyCore;dsnap;DataSnapCommon;emsclient;FireDACCommon;RESTBackendComponents;soapserver;bindengine;CloudService;FireDACCommonDriver;DataSnapClient;inet;bindcompdbx;IndyIPCommon;IndyIPServer;IndySystem;fmxFireDAC;FireDAC;FireDACSqliteDriver;ibmonitor;FMXTee;soaprtl;DbxCommonDriver;ibxpress;xmlrtl;soapmidas;DataSnapNativeClient;ibxbindings;rtl;FireDACDSDriver;DbxClientDriver;CustomIPTransport;bindcomp;fgx;IndyIPClient;dbxcds;dsnapxml;DataSnapProviderClient;dbrtl;IndyProtocols;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_OSX32)'!=''">
+        <DCC_ConsoleTarget>true</DCC_ConsoleTarget>
+        <DCC_UsePackage>DBXSqliteDriver;RESTComponents;DataSnapServerMidas;DBXInterBaseDriver;emsclientfiredac;DataSnapFireDAC;tethering;FireDACMSSQLDriver;bindcompfmx;DBXOracleDriver;inetdb;FmxTeeUI;emsedge;FireDACIBDriver;fmx;fmxdae;FireDACDBXDriver;dbexpress;IndyCore;dsnap;DataSnapCommon;emsclient;FireDACCommon;RESTBackendComponents;soapserver;bindengine;DBXMySQLDriver;FireDACOracleDriver;CloudService;FireDACMySQLDriver;DBXFirebirdDriver;FireDACCommonODBC;FireDACCommonDriver;DataSnapClient;inet;bindcompdbx;IndyIPCommon;IndyIPServer;IndySystem;fmxFireDAC;FireDAC;emshosting;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;FireDACASADriver;FireDACTDataDriver;FMXTee;soaprtl;DbxCommonDriver;ibxpress;DataSnapServer;xmlrtl;soapmidas;DataSnapNativeClient;fmxobj;ibxbindings;rtl;FireDACDSDriver;DbxClientDriver;DBXSybaseASADriver;CustomIPTransport;bindcomp;fgx;DBXInformixDriver;IndyIPClient;dbxcds;FireDACODBCDriver;DataSnapIndy10ServerTransport;dsnapxml;DataSnapProviderClient;dbrtl;inetdbxpress;FireDACMongoDBDriver;IndyProtocols;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <DCC_ConsoleTarget>true</DCC_ConsoleTarget>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+        <DCC_UsePackage>DBXSqliteDriver;RESTComponents;DataSnapServerMidas;DBXDb2Driver;DBXInterBaseDriver;vquery240;vclactnband;vclFireDAC;emsclientfiredac;DataSnapFireDAC;svnui;tethering;FireDACADSDriver;DBXMSSQLDriver;DatasnapConnectorsFreePascal;FireDACMSSQLDriver;unidacfmx240;vcltouch;ACBr_NFe;vcldb;bindcompfmx;svn;Intraweb;DBXOracleDriver;unidacvcl240;ipstudiowinwordxp;inetdb;ACBr_NFeDanfeESCPOS;ACBr_Diversos;dacfmx240;FmxTeeUI;emsedge;unidac240;FireDACIBDriver;fmx;fmxdae;frx24;vclib;crcontrols240;FireDACDBXDriver;dbexpress;IndyCore;vclx;dsnap;DataSnapCommon;emsclient;FireDACCommon;ACBr_PCNComum;RESTBackendComponents;DataSnapConnectors;VCLRESTComponents;soapserver;ACBr_SAT;dac240;vclie;bindengine;DBXMySQLDriver;FireDACOracleDriver;CloudService;FireDACMySQLDriver;DBXFirebirdDriver;FireDACCommonODBC;FireDACCommonDriver;DataSnapClient;inet;bindcompdbx;IndyIPCommon;ACBr_TCP;vcl;DBXSybaseASEDriver;IndyIPServer;ACBr_SATExtratoESCPOS;IndySystem;FireDACDb2Driver;dsnapcon;ACBr_synapse;FireDACMSAccDriver;fmxFireDAC;FireDACInfxDriver;vclimg;TeeDB;FireDAC;emshosting;ACBr_Comum;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;FireDACASADriver;DBXOdbcDriver;FireDACTDataDriver;FMXTee;ipstudiowinclient;soaprtl;DbxCommonDriver;ibxpress;Tee;dacvcl240;DataSnapServer;xmlrtl;soapmidas;DataSnapNativeClient;fmxobj;vclwinx;ibxbindings;rtl;FireDACDSDriver;DbxClientDriver;ACBr_OpenSSL;DBXSybaseASADriver;frxTee24;CustomIPTransport;vcldsnap;ACBr_DFeComum;bindcomp;appanalytics;fgx;DBXInformixDriver;ACBr_Serial;ipstudiowin;IndyIPClient;officeXPrt;bindcompvcl;TeeUI;frxe24;BarcodeScanner;dbxcds;VclSmp;ACBr_NFCeECFVirtual;adortl;FireDACODBCDriver;DataSnapIndy10ServerTransport;frxDB24;dsnapxml;DataSnapProviderClient;dbrtl;inetdbxpress;FireDACMongoDBDriver;IndyProtocols;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <DCC_ConsoleTarget>true</DCC_ConsoleTarget>
+        <DCC_UsePackage>DBXSqliteDriver;RESTComponents;DataSnapServerMidas;DBXDb2Driver;DBXInterBaseDriver;vclactnband;vclFireDAC;emsclientfiredac;DataSnapFireDAC;tethering;FireDACADSDriver;DBXMSSQLDriver;DatasnapConnectorsFreePascal;FireDACMSSQLDriver;vcltouch;vcldb;bindcompfmx;Intraweb;DBXOracleDriver;inetdb;FmxTeeUI;emsedge;FireDACIBDriver;fmx;fmxdae;vclib;FireDACDBXDriver;dbexpress;IndyCore;vclx;dsnap;DataSnapCommon;emsclient;FireDACCommon;RESTBackendComponents;DataSnapConnectors;VCLRESTComponents;soapserver;vclie;bindengine;DBXMySQLDriver;FireDACOracleDriver;CloudService;FireDACMySQLDriver;DBXFirebirdDriver;FireDACCommonODBC;FireDACCommonDriver;DataSnapClient;inet;bindcompdbx;IndyIPCommon;vcl;DBXSybaseASEDriver;IndyIPServer;IndySystem;FireDACDb2Driver;dsnapcon;FireDACMSAccDriver;fmxFireDAC;FireDACInfxDriver;vclimg;TeeDB;FireDAC;emshosting;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;FireDACASADriver;DBXOdbcDriver;FireDACTDataDriver;FMXTee;ipstudiowinclient;soaprtl;DbxCommonDriver;ibxpress;Tee;DataSnapServer;xmlrtl;soapmidas;DataSnapNativeClient;fmxobj;vclwinx;ibxbindings;rtl;FireDACDSDriver;DbxClientDriver;DBXSybaseASADriver;CustomIPTransport;vcldsnap;bindcomp;appanalytics;fgx;DBXInformixDriver;ipstudiowin;IndyIPClient;officeXPrt;bindcompvcl;TeeUI;dbxcds;VclSmp;adortl;FireDACODBCDriver;DataSnapIndy10ServerTransport;dsnapxml;DataSnapProviderClient;dbrtl;inetdbxpress;FireDACMongoDBDriver;IndyProtocols;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+        <DCC_DebugDCUs>true</DCC_DebugDCUs>
+        <DCC_Optimize>false</DCC_Optimize>
+        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+        <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+        <DCC_RemoteDebug>true</DCC_RemoteDebug>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Manifest_File>(None)</Manifest_File>
+        <DCC_DcuOutput>C:\ProDelphiBerlin\API Rest\trabinapi\backend\Win32\Debug\</DCC_DcuOutput>
+        <DCC_ExeOutput>C:\ProDelphiBerlin\API Rest\trabinapi\backend\</DCC_ExeOutput>
+        <DCC_RemoteDebug>false</DCC_RemoteDebug>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+        <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+        <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+        <DCC_DebugInformation>0</DCC_DebugInformation>
+    </PropertyGroup>
+    <ItemGroup>
+        <DelphiCompile Include="$(MainSource)">
+            <MainSource>MainSource</MainSource>
+        </DelphiCompile>
+        <DCCReference Include="src\controllers\ctl.cadLocalidades.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadAtividades.pas"/>
+        <DCCReference Include="src\controllers\ctl.srvAutorizaNFe.pas"/>
+        <DCCReference Include="src\data\dat.cadLocalidades.pas"/>
+        <DCCReference Include="src\providers\prv.dataModuleConexao.pas">
+            <Form>ProviderDataModuleConexao</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="src\models\models.cadLocalidades.pas"/>
+        <DCCReference Include="src\models\models.cadAtividades.pas"/>
+        <DCCReference Include="src\providers\prv.srvAutorizaNFe.pas">
+            <Form>ProviderServicoAutorizaNFe</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="src\controllers\ctl.movNFePendentes.pas"/>
+        <DCCReference Include="src\data\dat.movNFePendentes.pas"/>
+        <DCCReference Include="src\controllers\ctl.movNFeAutorizadas.pas"/>
+        <DCCReference Include="src\data\dat.movNFeAutorizadas.pas"/>
+        <DCCReference Include="src\controllers\ctl.arqNFeXML.pas"/>
+        <DCCReference Include="src\providers\prv.arqNFeXML.pas">
+            <Form>ProviderArquivoNFeXML</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="src\controllers\ctl.arqNFePDF.pas"/>
+        <DCCReference Include="src\providers\prv.arqNFePDF.pas">
+            <Form>ProviderArquivoNFePDF</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="src\controllers\ctl.seqUltimoPedidoVenda.pas"/>
+        <DCCReference Include="src\models\models.seqUltimoPedidoVenda.pas"/>
+        <DCCReference Include="src\data\dat.seqUltimoPedidoVenda.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadClientes.pas"/>
+        <DCCReference Include="src\data\dat.cadClientes.pas"/>
+        <DCCReference Include="src\models\models.cadClientes.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadCondicoes.pas"/>
+        <DCCReference Include="src\data\dat.cadCondicoes.pas"/>
+        <DCCReference Include="src\models\models.cadCondicoes.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadVendedores.pas"/>
+        <DCCReference Include="src\models\models.cadVendedores.pas"/>
+        <DCCReference Include="src\data\dat.cadVendedores.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadCobrancas.pas"/>
+        <DCCReference Include="src\models\models.cadCobrancas.pas"/>
+        <DCCReference Include="src\data\dat.cadCobrancas.pas"/>
+        <DCCReference Include="src\controllers\ctl.movNFePendentesItens.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadProdutos.pas"/>
+        <DCCReference Include="src\models\models.cadProdutos.pas"/>
+        <DCCReference Include="src\data\dat.cadProdutos.pas"/>
+        <DCCReference Include="src\controllers\ctl.movNFePendentesParcelas.pas"/>
+        <DCCReference Include="src\models\models.movNFePendentesParcelas.pas"/>
+        <DCCReference Include="src\data\dat.movNFePendentesParcelas.pas"/>
+        <DCCReference Include="src\controllers\ctl.srvCalculaParcelaNFe.pas"/>
+        <DCCReference Include="src\data\dat.srvCalculaParcelaNFe.pas"/>
+        <DCCReference Include="src\controllers\ctl.srvCalculaImpostoNFeItem.pas"/>
+        <DCCReference Include="src\data\dat.srvCalculaImpostoNFeItem.pas"/>
+        <DCCReference Include="src\controllers\ctl.movOrcamentos.pas"/>
+        <DCCReference Include="src\data\dat.movOrcamentos.pas"/>
+        <DCCReference Include="src\models\models.movOrcamentos.pas"/>
+        <DCCReference Include="src\data\dat.movNFePendentesItens.pas"/>
+        <DCCReference Include="src\data\dat.movOrcamentosItens.pas"/>
+        <DCCReference Include="src\models\models.movOrcamentosItens.pas"/>
+        <DCCReference Include="src\controllers\ctl.movOrcamentosParcelas.pas"/>
+        <DCCReference Include="src\data\dat.movOrcamentosParcelas.pas"/>
+        <DCCReference Include="src\models\models.movOrcamentosParcelas.pas"/>
+        <DCCReference Include="src\controllers\ctl.arqPedidoPDF.pas"/>
+        <DCCReference Include="src\providers\prv.arqPedidoPDF.pas">
+            <Form>ProviderArquivoPedidoPDF</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\providers\prv.fotoProduto.pas">
+            <Form>ProviderFotoProduto</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\controllers\ctl.cadProdutosGrade.pas"/>
+        <DCCReference Include="src\data\dat.cadProdutosGrade.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadEmpresa.pas"/>
+        <DCCReference Include="src\data\dat.cadEmpresa.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadAliquotasICM.pas"/>
+        <DCCReference Include="src\data\dat.cadAliquotasICM.pas"/>
+        <DCCReference Include="src\models\models.cadAliquotasICM.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadCategorias.pas"/>
+        <DCCReference Include="src\data\dat.cadCategorias.pas"/>
+        <DCCReference Include="src\data\dat.cadClassificacoes.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadClassificacoes.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadClassificacoesFiscais.pas"/>
+        <DCCReference Include="src\data\dat.cadClassificacoesFiscais.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadCodigosFiscais.pas"/>
+        <DCCReference Include="src\data\dat.cadCodigosFiscais.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadCondicoesPrazos.pas"/>
+        <DCCReference Include="src\data\dat.cadCondicoesPrazos.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadFabricantes.pas"/>
+        <DCCReference Include="src\data\dat.cadFabricantes.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadFamilias.pas"/>
+        <DCCReference Include="src\data\dat.cadFamilias.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadFormulas.pas"/>
+        <DCCReference Include="src\data\dat.cadFormulas.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadGrades.pas"/>
+        <DCCReference Include="src\data\dat.cadGrades.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadGradesTitulos.pas"/>
+        <DCCReference Include="src\data\dat.cadGradesTitulos.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadNumerarios.pas"/>
+        <DCCReference Include="src\data\dat.cadNumerarios.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadOperacoes.pas"/>
+        <DCCReference Include="src\data\dat.cadOperacoes.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadOrigens.pas"/>
+        <DCCReference Include="src\data\dat.cadOrigens.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPessoas.pas"/>
+        <DCCReference Include="src\data\dat.cadPessoas.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPessoasContatos.pas"/>
+        <DCCReference Include="src\data\dat.cadPessoasContatos.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPessoasCNAE.pas"/>
+        <DCCReference Include="src\data\dat.cadPessoasCNAES.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPessoasConsultasMedicas.pas"/>
+        <DCCReference Include="src\data\dat.cadPessoasConsultasMedicas.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPessoasContratosSociais.pas"/>
+        <DCCReference Include="src\data\dat.cadPessoasContratosSociais.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPessoasDependentes.pas"/>
+        <DCCReference Include="src\data\dat.cadPessoasDependentes.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPessoasDescFabricantes.pas"/>
+        <DCCReference Include="src\data\dat.cadPessoasDescFabricantes.pas"/>
+        <DCCReference Include="src\data\dat.cadPessoasDevolucoes.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPessoasDevolucoes.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPessoasEmpresas.pas"/>
+        <DCCReference Include="src\data\dat.cadPessoasEmpresas.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPessoasFiadores.pas"/>
+        <DCCReference Include="src\data\dat.cadPessoasFiadores.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPessoasFidelidades.pas"/>
+        <DCCReference Include="src\data\dat.cadPessoasFidelidades.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPessoasFrequencias.pas"/>
+        <DCCReference Include="src\data\dat.cadPessoasFrequencias.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPessoasGrupos.pas"/>
+        <DCCReference Include="src\data\dat.cadPessoasGrupos.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPessoasItens.pas"/>
+        <DCCReference Include="src\data\dat.cadPessoasItens.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPessoasProdutos.pas"/>
+        <DCCReference Include="src\data\dat.cadPessoasProdutos.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPessoasRevendas.pas"/>
+        <DCCReference Include="src\data\dat.cadPessoasRevendas.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPessoasSPC.pas"/>
+        <DCCReference Include="src\data\dat.cadPessoasSPC.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPessoasSocios.pas"/>
+        <DCCReference Include="src\data\dat.cadPessoasSocios.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPlanoContas.pas"/>
+        <DCCReference Include="src\data\dat.cadPlanoContas.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPlanoContasReferencial.pas"/>
+        <DCCReference Include="src\data\dat.cadPlanoContasReferencial.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPlanoEstoques.pas"/>
+        <DCCReference Include="src\data\dat.cadPlanoEstoques.pas"/>
+        <DCCReference Include="src\data\dat.cadProdutosAlternativos.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadProdutosAlternativos.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadProdutosBeneficios.pas"/>
+        <DCCReference Include="src\data\dat.cadProdutosBeneficios.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadProdutosCodigoBarras.pas"/>
+        <DCCReference Include="src\data\dat.cadProdutosCodigoBarras.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadProdutosCombustiveis.pas"/>
+        <DCCReference Include="src\data\dat.cadProdutosCombustiveis.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadProdutosComplementares.pas"/>
+        <DCCReference Include="src\data\dat.cadProdutosComplementares.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadProdutosComponentes.pas"/>
+        <DCCReference Include="src\data\dat.cadProdutosComponentes.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadProdutosCores.pas"/>
+        <DCCReference Include="src\data\dat.cadProdutosCores.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadProdutosDescontos.pas"/>
+        <DCCReference Include="src\data\dat.cadProdutosDescontos.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadProdutosDetalhes.pas"/>
+        <DCCReference Include="src\data\dat.cadProdutosDetalhes.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadProdutosElementosControles.pas"/>
+        <DCCReference Include="src\data\dat.cadProdutosElementosControles.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadProdutosEnviaSites.pas"/>
+        <DCCReference Include="src\data\dat.cadProdutosEnviaSites.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadProdutosEstoques.pas"/>
+        <DCCReference Include="src\data\dat.cadProdutosEstoques.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadProdutosExcedentes.pas"/>
+        <DCCReference Include="src\data\dat.cadProdutosExcedentes.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadProdutosExpedicoes.pas"/>
+        <DCCReference Include="src\data\dat.cadProdutosExpedicoes.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadProdutosFornecedores.pas"/>
+        <DCCReference Include="src\data\dat.cadProdutosFornecedores.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadProdutosPrecos.pas"/>
+        <DCCReference Include="src\data\dat.cadProdutosPrecos.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadProdutosRegraDescontos.pas"/>
+        <DCCReference Include="src\data\dat.cadProdutosRegraDescontos.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadProdutosRevendas.pas"/>
+        <DCCReference Include="src\data\dat.cadProdutosRevendas.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadSetores.pas"/>
+        <DCCReference Include="src\data\dat.cadSetores.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadSituacoesTributarias.pas"/>
+        <DCCReference Include="src\data\dat.cadSituacoesTributarias.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadTabelasCNAE.pas"/>
+        <DCCReference Include="src\data\dat.cadTabelasCNAE.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadTabelasCores.pas"/>
+        <DCCReference Include="src\data\dat.cadTabelasCores.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadTabelasDescontos.pas"/>
+        <DCCReference Include="src\data\dat.cadTabelasDescontos.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadTabelasDescontosFaixas.pas"/>
+        <DCCReference Include="src\data\dat.cadTabelasDescontosFaixas.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadTabelasGrupos.pas"/>
+        <DCCReference Include="src\data\dat.cadTabelasGrupos.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadTabelasPrecos.pas"/>
+        <DCCReference Include="src\data\dat.cadTabelasPrecos.pas"/>
+        <DCCReference Include="src\controllers\ctl.movOrcamentosCFOPS.pas"/>
+        <DCCReference Include="src\data\dat.movOrcamentosCFOPS.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPessoasHistoricos.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPessoasObservacoes.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadPessoasParcelas.pas"/>
+        <DCCReference Include="src\data\dat.cadPessoasObservacoes.pas"/>
+        <DCCReference Include="src\data\dat.cadPessoasParcelas.pas"/>
+        <DCCReference Include="src\data\dat.cadPessoasHistoricos.pas"/>
+        <DCCReference Include="src\controllers\ctl.movNotasFiscais.pas"/>
+        <DCCReference Include="src\data\dat.movNotasFiscais.pas"/>
+        <DCCReference Include="src\controllers\ctl.movNotasFiscaisCFOPS.pas"/>
+        <DCCReference Include="src\data\dat.movNotasFiscaisCFOPS.pas"/>
+        <DCCReference Include="src\controllers\ctl.movOrcamentosItens.pas"/>
+        <DCCReference Include="src\controllers\ctl.movNotasFiscaisItens.pas"/>
+        <DCCReference Include="src\data\dat.movNotasFiscaisItens.pas"/>
+        <DCCReference Include="src\controllers\ctl.movNotasFiscaisParcelas.pas"/>
+        <DCCReference Include="src\data\dat.movNotasFiscaisParcelas.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadValidacoes.pas"/>
+        <DCCReference Include="src\data\dat.cadValidacoes.pas"/>
+        <DCCReference Include="src\controllers\ctl.srvDFe.pas"/>
+        <DCCReference Include="src\controllers\ctl.cadAgendas.pas"/>
+        <DCCReference Include="src\controllers\ctl.srvDFeConsultaStatusWebService.pas"/>
+        <DCCReference Include="src\controllers\ctl.srvDFeArquivamento.pas"/>
+        <DCCReference Include="src\controllers\ctl.movDFeUltNSU.pas"/>
+        <DCCReference Include="src\controllers\ctl.movDFeConsultados.pas"/>
+        <DCCReference Include="src\controllers\ctl.srvDFeConsultaUltNSU.pas"/>
+        <DCCReference Include="src\controllers\ctl.movDFeArquivados.pas"/>
+        <DCCReference Include="src\controllers\ctl.movDFeCancelados.pas"/>
+        <DCCReference Include="src\controllers\ctl.movDFeConfirmados.pas"/>
+        <DCCReference Include="src\controllers\ctl.movDFeCiencias.pas"/>
+        <DCCReference Include="src\controllers\ctl.srvDFeNaoRealizada.pas"/>
+        <DCCReference Include="src\controllers\ctl.srvDFeDesconhecimento.pas"/>
+        <DCCReference Include="src\controllers\ctl.srvDFeConfirmacao.pas"/>
+        <DCCReference Include="src\controllers\ctl.srvDFeCiencia.pas"/>
+        <DCCReference Include="src\data\dat.cadAgendas.pas"/>
+        <DCCReference Include="src\data\dat.cadAtividades.pas"/>
+        <DCCReference Include="src\data\dat.movDFeConsultados.pas"/>
+        <DCCReference Include="src\data\dat.movDFeUltNSU.pas"/>
+        <DCCReference Include="src\data\dat.movDFeArquivados.pas"/>
+        <DCCReference Include="src\data\dat.movDFeCancelados.pas"/>
+        <DCCReference Include="src\data\dat.movDFeConfirmados.pas"/>
+        <DCCReference Include="src\data\dat.movDFeCiencias.pas"/>
+        <DCCReference Include="src\controllers\ctl.arqDFeArquivosXML.pas"/>
+        <DCCReference Include="src\data\dat.arqDFeArquivosXML.pas"/>
+        <DCCReference Include="src\controllers\ctl.arqDFeArquivoIni.pas"/>
+        <DCCReference Include="src\controllers\ctl.srvDFeTransfereXML.pas"/>
+        <DCCReference Include="src\controllers\ctl.movDFeForaPrazo.pas"/>
+        <DCCReference Include="src\data\dat.movDFeForaPrazo.pas"/>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType>Application</Borland.ProjectType>
+        <BorlandProject>
+            <Delphi.Personality>
+                <Source>
+                    <Source Name="MainSource">TrabinApi.dpr</Source>
+                </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k240.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp240.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k240.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                </Excluded_Packages>
+            </Delphi.Personality>
+            <Deployment Version="3">
+                <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule">
+                    <Platform Name="OSX32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="$(BDS)\Redist\iossimulator\libcgunwind.1.0.dylib" Class="DependencyModule">
+                    <Platform Name="iOSSimulator">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="$(BDS)\Redist\iossimulator\libPCRE.dylib" Class="DependencyModule">
+                    <Platform Name="iOSSimulator">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="$(BDS)\Redist\osx32\libcgsqlite3.dylib" Class="DependencyModule">
+                    <Platform Name="OSX32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="TrabinApi.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>TrabinApi.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployClass Name="DependencyModule">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.dll;.bpl</Extensions>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectOSXResource">
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\Resources</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidClassesDexFile">
+                    <Platform Name="Android">
+                        <RemoteDir>classes</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AdditionalDebugSymbols">
+                    <Platform Name="Win32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch768">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon144">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xxhdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidLibnativeMipsFile">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\mips</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Required="true" Name="ProjectOutput">
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="Linux64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi-v7a</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="DependencyFramework">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.framework</Extensions>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch640">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch1024">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSDeviceDebug">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>..\$(PROJECTNAME).app.dSYM\Contents\Resources\DWARF</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <RemoteDir>..\$(PROJECTNAME).app.dSYM\Contents\Resources\DWARF</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch320">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSInfoPList">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidLibnativeArmeabiFile">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="DebugSymbols">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch1536">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage470">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-normal</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon96">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xhdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage640">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-large</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch640x1136">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSEntitlements">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>..\</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <RemoteDir>..\</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon72">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-hdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidGDBServer">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi-v7a</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectOSXInfoPList">
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectOSXEntitlements">
+                    <Platform Name="OSX32">
+                        <RemoteDir>..\</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch2048">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidSplashStyles">
+                    <Platform Name="Android">
+                        <RemoteDir>res\values</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage426">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-small</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidSplashImageDef">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSResource">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectAndroidManifest">
+                    <Platform Name="Android">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_DefaultAppIcon">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="File">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\Resources\StartUp\</RemoteDir>
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="Android">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidServiceOutput">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi-v7a</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Required="true" Name="DependencyPackage">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.bpl</Extensions>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon48">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-mdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage960">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xlarge</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon36">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-ldpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSDeviceResourceRules">
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="Linux64" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="Android" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
+            </Deployment>
+            <Platforms>
+                <Platform value="Android">False</Platform>
+                <Platform value="iOSDevice32">False</Platform>
+                <Platform value="iOSDevice64">False</Platform>
+                <Platform value="iOSSimulator">False</Platform>
+                <Platform value="OSX32">False</Platform>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">False</Platform>
+            </Platforms>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+    <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
+    <Import Project="$(MSBuildProjectName).deployproj" Condition="Exists('$(MSBuildProjectName).deployproj')"/>
+</Project>
